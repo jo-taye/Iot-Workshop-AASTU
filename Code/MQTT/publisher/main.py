@@ -8,8 +8,8 @@ import ucrypto
 import math
 import ujson
 
-wifi_ssid = "__YOUR_SSID__"
-wifi_passwd = "__YOUR_PW__"
+wifi_ssid = "AASTU-Guest"
+wifi_passwd = ""
 
 broker_addr = "test.mosquitto.org"
 MYDEVID = "PM"
@@ -38,7 +38,7 @@ nets = wlan.scan()
 for net in nets:
     if net.ssid == wifi_ssid:
         print("Network " + wifi_ssid + " found!")
-        wlan.connect(net.ssid, auth=(net.sec, wifi_passwd), timeout=5000)
+        wlan.connect(net.ssid, auth=(0, ''), timeout=5000)
         while not wlan.isconnected():
             machine.idle() # save power while waiting
         print("WLAN connection succeeded!")

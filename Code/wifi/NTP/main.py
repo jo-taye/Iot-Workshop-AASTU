@@ -5,10 +5,13 @@ import time
 wlan = WLAN(mode=WLAN.STA)
 
 nets = wlan.scan()
+
 for net in nets:
-    if net.ssid == 'WALC-2017':
+    print (net)
+    if net.ssid == 'AASTU-Guest':
         print('Network found!')
-        wlan.connect(net.ssid, auth=(net.sec, 'UtecWalc17'), timeout=5000)
+        # wlan.connect(net.ssid, auth=(net.sec, 'UtecWalc17'), timeout=5000)
+        wlan.connect(net.ssid, auth=(0, ''), timeout=5000)
         while not wlan.isconnected():
             machine.idle() # save power while waiting
         print('WLAN connection succeeded!')
